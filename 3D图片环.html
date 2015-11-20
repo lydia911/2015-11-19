@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>练习</title>
+<style>
+*{margin:0;padding:0;list-style:none;}
+body{background:#000;}
+ul{width:133px;height:200px;position:relative;top:0;left:0;margin:150px auto;-webkit-transform:perspective(800px) rotateX(-15deg) rotateY(0deg);-webkit-transform-style:preserve-3d;-webkit-transition:4s all ease;}
+li{width:100%;height:100%;position:absolute;top:0;left:0;-webkit-transition:1s all ease;}
+ul:hover{-webkit-transform:perspective(800px) rotateX(360deg) rotateY(360deg)}
+</style>
+
+<script>
+window.onload=function(){
+	var oUl=document.querySelector('ul');
+	var aLi=document.querySelectorAll('ul li');	
+	var i=aLi.length-1;
+	var timer=setInterval(function(){
+		aLi[i].style.WebkitTransform='rotateY('+i*360/aLi.length+'deg) translateZ(350px)'
+		i--;
+		if(i<0){
+			clearInterval(timer)
+		}
+	},100)
+};
+</script>
+</head>
+
+<body>
+
+	<ul>
+    	<li><img src="img1/0.jpg"/></li>
+        <li><img src="img1/1.jpg"/></li>
+        <li><img src="img1/2.jpg"/></li>
+        <li><img src="img1/3.jpg"/></li>
+        <li><img src="img1/4.jpg"/></li>
+        <li><img src="img1/5.jpg"/></li>
+        <li><img src="img1/6.jpg"/></li>
+        <li><img src="img1/7.jpg"/></li>
+        <li><img src="img1/8.jpg"/></li>
+        <li><img src="img1/9.jpg"/></li>
+        <li><img src="img1/10.jpg"/></li>
+    </ul>
+
+</body>
+</html>

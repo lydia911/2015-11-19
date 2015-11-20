@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>练习</title>
+<style>
+*{margin:0;padding:0;}
+div{width:700px;height:400px;background:url(img/1.jpg) no-repeat;margin:100px auto;position:relative;top:0;left:0;}
+span{position:absolute;background:url(img/0.jpg) no-repeat;opacity:1;}
+</style>
+
+<script>
+window.onload=function(){
+	var oDiv=document.querySelector('div');
+	var aS=oDiv.children;
+	var C=7;
+	var R=4;
+	for(var i=0;i<C;i++){
+		for(var j=0;j<R;j++){
+			var oS=document.createElement('span');
+			oS.style.width=oDiv.offsetWidth/C+'px';
+			oS.style.height=oDiv.offsetHeight/R+'px';					
+			oDiv.appendChild(oS);
+			oS.style.left=oDiv.offsetWidth/C*i+'px';
+			oS.style.top=oDiv.offsetHeight/R*j+'px';
+			oS.style.backgroundPosition=-oS.offsetLeft+'px '+-oS.offsetTop+'px';
+		}
+	}
+	oDiv.onclick=function(){
+		for(var i=0;i<aS.length;i++){
+			var cX=oDiv.offsetWidth/2;
+			var cY=oDiv.offsetHeight/2;
+			var sX=aS[i].offsetLeft+aS[i].offsetWidth/2;
+			var sY=aS[i].offsetTop+aS[i].offsetHeight/2;
+			var disX=sX-cX;
+			var disY=sY-cY;
+			aS[i].style.webkitTransition='1s all ease'
+			aS[i].style.webkitTransform='translateX('+disX+'px) translateY('+disY+'px) rotateX('+Math.random()*180+'deg) rotateY('+Math.random()*180+'deg)';
+			aS[i].style.opacity=0;
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>
